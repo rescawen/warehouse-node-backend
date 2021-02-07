@@ -1,0 +1,24 @@
+{
+  "name": "warehouse-node-backend",
+  "version": "1.0.0",
+  "description": "Repository that is deployed to heroku and work around for legacy api",
+  "main": "index.js",
+  "scripts": {
+    "server": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rescawen/warehouse-node-backend.git"
+  },
+  "author": "Wenlei Dai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rescawen/warehouse-node-backend/issues"
+  },
+  "homepage": "https://github.com/rescawen/warehouse-node-backend#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "json-server": "^0.16.3"
+  }
+}

@@ -1,0 +1,8 @@
+{
+    "/abiplos/": "/:id",
+    "/ippal/": "/:id",
+    "/okkau/": "/:id",
+    "/umpante/": "/:id",
+    "/laion/": "/:id",
+    "/niksleh/": "/:id"
+}

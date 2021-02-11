@@ -1,11 +1,23 @@
 const beanies = require('./clothing/beanies.json')
 const facemasks = require('./clothing/facemasks.json')
 const gloves = require('./clothing/gloves.json')
+const abiplos = require('./manufacturers/abiplos.json')
+const ippal = require('./manufacturers/ippal.json')
+const okkau = require('./manufacturers/okkau.json')
+const umpante = require('./manufacturers/umpante.json')
+const niksleh = require('./manufacturers/niksleh.json')
+const laion = require('./manufacturers/laion.json')
 
 module.exports = () => {
     return {
         beanies: beanies,
         facemasks: facemasks,
-        gloves: gloves
+        gloves: gloves,
+        abiplos: abiplos,
+        ippal: ippal,
+        okkau: okkau,
+        umpante: umpante,
+        niksleh: niksleh,
+        laion: laion
     }
 }

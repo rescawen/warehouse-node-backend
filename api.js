@@ -3,49 +3,36 @@ const fs = require('fs')
 // fs.readdir('./download')
 
 // download fresh ones from bad api, when server starts and periodically based on the 5minute internal cache?
-// find out from product category, which manufacturers to download and download them
 // if downloaded are old compared fresh ones, then delete and replace
 
 const productURL = 'https://bad-api-assignment.reaktor.com/v2/products/'
 const manufacturerURL = 'https://bad-api-assignment.reaktor.com/v2/availability/'
 const productCategories = ['beanies', 'facemasks', 'gloves']
-const manufacturers = new Set()
 
-function getProducts(callback) {
-    productCategories.forEach(category => {
-        fetchJson.get(productURL + category).then((data) => {
+const getProducts = async () => {
+    const manufacturers = new Set()
+    for (const category of productCategories) {
+        await fetchJson.get(productURL + category).then((data) => {
             for (i = 0; i < data.length; i++) manufacturers.add(data[i].manufacturer)
             fs.writeFileSync(`./download/${category}.json`, JSON.stringify(data))
-            console.log(manufacturers.size)
-            callback()
         })
-    })
+    }
+    return manufacturers
 }
 
-function getManufacturers() {
-    console.log('coming here ' + manufacturers.size)
+// Theoretically a list of manufacturers would negate the need for the parsing of product category data on L#17
+// Practically for this assignment parsing through one of the categories should be enough
+// If no list is received and different categories have different manufacturers, then above solution is best
+
+const getManufacturers = async () => {
+    const manufacturers = await getProducts()      
     manufacturers.forEach(manufacturer => {
-        console.log('coming inside this foreach')
         fetchJson.get(manufacturerURL + manufacturer).then((data) => {
             fs.writeFileSync(`./download/${manufacturer}.json`, JSON.stringify(data.response))
         })
     })
 }
 
-getProducts(getManufacturers)
+// getManufacturers()
 
-// manufacturers.forEach(manufacturer => {
-//     fetchJson.get(manufacturerURL + manufacturer).then((data) => {
-//         fs.writeFileSync(`./download/${manufacturer}.json`, JSON.stringify(data))
-//     })
-// })
-
-// if (manufacturers.size > 5) {
-//     console.log(manufacturers.size)
-//     manufacturers.forEach(manufacturer => {
-//         fetchJson.get(manufacturerURL + manufacturer).then((data) => {
-//             fs.writeFileSync(`./download/${manufacturer}.json`, JSON.stringify(data))
-//         })
-//     })
-// }
-
+exports.getManufacturers = getManufacturers

@@ -4,5 +4,7 @@
     "/okkau/": "/:id",
     "/umpante/": "/:id",
     "/laion/": "/:id",
-    "/niksleh/": "/:id"
+    "/niksleh/": "/:id",
+    "/juuran/": "/:id",
+    "/hennex":  "/:id"
 }

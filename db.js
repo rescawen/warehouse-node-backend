@@ -7,6 +7,8 @@ const okkau = require('./manufacturers/okkau.json')
 const umpante = require('./manufacturers/umpante.json')
 const niksleh = require('./manufacturers/niksleh.json')
 const laion = require('./manufacturers/laion.json')
+const juuran = require('./manufacturers/juuran.json')
+const hennex = require('./manufacturers/hennex.json')
 
 module.exports = () => {
     return {
@@ -18,6 +20,8 @@ module.exports = () => {
         okkau: okkau,
         umpante: umpante,
         niksleh: niksleh,
-        laion: laion
+        laion: laion,
+        juuran: juuran,
+        hennex: hennex
     }
 }

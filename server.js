@@ -19,7 +19,7 @@ const server = express()
 const router = jsonServer.router(require('./db.js')())
 const middlewares = jsonServer.defaults()
 
-server.use(express.static('build'))
+// server.use(express.static('build'))
 server.use(middlewares)
 server.use(router)
 const PORT = process.env.PORT || 3001

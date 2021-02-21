@@ -4,10 +4,10 @@
   "description": "Repository that is deployed to heroku and work around for legacy api",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node server.js --routes routes.json",
     "api": "node api.js",
-    "server": "node server.js --routes routes.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:ui": "rm -rf build && cd ../reaktor-warehouse-app/warehouse_frontend && npm run build --prod && cp -r build ../warehouse-node-backend/"
   },
   "repository": {
     "type": "git",

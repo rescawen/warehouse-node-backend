@@ -13,15 +13,16 @@ const currentFiles = { 'beanies': beanies, 'facemasks': facemasks, 'gloves': glo
 
 
 const getProducts = async () => {
-    const manufacturers = new Set([...missingManufacturers])
+    const manufacturers = new Set(missingManufacturers)
     for (const category of productCategories) {
         await fetchJson.get(productURL + category).then((data) => {
             if (!_.isEqual(data, currentFiles[category])) {
                 console.log("new category coming in")
                 for (i = 0; i < data.length; i++) manufacturers.add(data[i].manufacturer)
                 fs.writeFileSync(`./clothing/${category}.json`, JSON.stringify(data))
+            } else {
+                console.log("no change in category")
             }
-            console.log("no change in category")
         })
     }
     return manufacturers
@@ -34,16 +35,18 @@ const getManufacturers = async () => {
     manufacturers.forEach(manufacturer => {
         fetchJson.get(manufacturerURL + manufacturer).then((data) => {
             if (data.response === "[]") {
-                missingManufacturers.add(manufacturer)
+                missingManufacturers.push(manufacturer)
                 console.log("error detected, empty array from manufacturer " + manufacturer)
                 // write an empty file to missing manu???
+                console.log(missingManufacturers)
             } else {
                 fs.writeFileSync(`./manufacturers/${manufacturer}.json`, JSON.stringify(data.response))
             }
 
         })
     })
-    fs.writeFileSync(`./manufacturers/missingManufacturers.json`, JSON.stringify(missingManufacturers))
+    console.log(missingManufacturers)
+    fs.writeFileSync(`./manufacturers/missing.json`, JSON.stringify(missingManufacturers))
 }
 
 getManufacturers()

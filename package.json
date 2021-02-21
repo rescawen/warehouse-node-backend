@@ -20,6 +20,7 @@
   "homepage": "https://github.com/rescawen/warehouse-node-backend#readme",
   "dependencies": {
     "fetch-json": "^2.4.4",
+    "lodash": "^4.17.21",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {

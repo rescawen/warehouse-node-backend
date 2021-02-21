@@ -1,7 +1,9 @@
 const jsonServer = require('json-server')
 const api = require('./api')
+// api.getManufacturers()
 
-api.getManufacturers()
+setInterval(api.getManufacturers, 300000)
+// setInterval(api.getManufacturers, 10)
 
 const server = jsonServer.create()
 const router = jsonServer.router(require('./db.js')())

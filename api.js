@@ -4,7 +4,7 @@ const fs = require('fs')
 const beanies = require('./clothing/beanies.json')
 const facemasks = require('./clothing/facemasks.json')
 const gloves = require('./clothing/gloves.json')
-const missingManufacturers = require('./manufacturers/missingManufacturers.json')
+const missingManufacturers = require('./manufacturers/missing.json')
 
 const productURL = 'https://bad-api-assignment.reaktor.com/v2/products/'
 const manufacturerURL = 'https://bad-api-assignment.reaktor.com/v2/availability/'

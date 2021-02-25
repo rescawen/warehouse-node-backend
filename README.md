@@ -8,4 +8,13 @@ Uses fetch-json to get the JSON "database" files from bad-api. Actual server is 
 
 The node server consists of routing files which are [database](https://github.com/rescawen/warehouse-node-backend/blob/main/db.js) and [routes](https://github.com/rescawen/warehouse-node-backend/blob/main/routes.json). The most interesting script is the probably the [api](https://github.com/rescawen/warehouse-node-backend/blob/main/api.js) which does the fetching of the JSON files from bad api. 
 
+The basic of the [api](https://github.com/rescawen/warehouse-node-backend/blob/main/api.js) script is to go through all 3 categories which are beanies, facemasks and gloves and the 6 of a maximum of 8 different manufacturers. 
+
+1. A for loop for the product categories is placed in an asynchronous function that gets the json files of each category. We then parse through these to find out the manufacturers which is returned at the of the function as its output. 
+2. Once we know which manufacturers we are dealing with, a similar loop is done for manufacturers and we save the respective json files.
+
+INSERT DECISION DIAGRAM HERE
+
+
+
 ### Front-end React app at [separate repository](https://github.com/rescawen/reaktor-warehouse-app)  

@@ -12,7 +12,7 @@ The basic of the [api](https://github.com/rescawen/warehouse-node-backend/blob/m
 1. A for loop for the product categories is placed in an asynchronous function that gets the json files of each category. We then parse through these to find out the manufacturers which is returned at the of the function as its output. 
 2. Once we know which manufacturers we are dealing with, a similar loop is done for manufacturers and we save the respective json files.
 
-![diagram](https://github.com/rescawen/reaktor-warehouse-app/blob/main/diagrams/reaktorwarehousebackend%20(2).png)
+<img src="https://github.com/rescawen/reaktor-warehouse-app/blob/main/diagrams/reaktorwarehousebackend%20(2).png" alt="diagram" width="550"/>
 
 This diagram hopefully explains the dense ~30 lines of code in [api](https://github.com/rescawen/warehouse-node-backend/blob/main/api.js) in a straight forward way. The main advantage of this model is having the same code run regardless of the situation. This makes it easy for this node server to match the 5 minute cache of bad-api. In addition most of the time when things are operating correctly, we do not accidentally replace a functioning json file in manufacturers with an empty response. 
 

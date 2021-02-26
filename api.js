@@ -31,14 +31,11 @@ const getProducts = async () => {
 const getManufacturers = async () => {
     const missingManufacturers = []
     const manufacturers = await getProducts()
-    // console.log(manufacturers)
     manufacturers.forEach(manufacturer => {
         fetchJson.get(manufacturerURL + manufacturer).then((data) => {
             if (data.response === "[]") {
                 missingManufacturers.push(manufacturer)
                 console.log("error detected, empty array from manufacturer " + manufacturer)
-                // write an empty file to missing manu???
-                console.log(missingManufacturers)
             } else {
                 fs.writeFileSync(`./manufacturers/${manufacturer}.json`, JSON.stringify(data.response))
             }
@@ -48,7 +45,5 @@ const getManufacturers = async () => {
     console.log(missingManufacturers)
     fs.writeFileSync(`./manufacturers/missing.json`, JSON.stringify(missingManufacturers))
 }
-
-getManufacturers()
 
 exports.getManufacturers = getManufacturers

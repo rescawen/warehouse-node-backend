@@ -7,7 +7,7 @@
     "start": "node server.js --routes routes.json",
     "api": "node api.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:ui": "rm -rf build && cd ../reaktor-warehouse-app/warehouse_frontend && npm run build --prod && cp -r build ../warehouse-node-backend/"
+    "build:ui": "rm -rf build && cd ../reaktor-warehouse-app/warehouse_frontend && npm run build --prod && cp -r build ../../warehouse-node-backend/"
   },
   "repository": {
     "type": "git",
@@ -23,10 +23,6 @@
     "express": "^4.17.1",
     "fetch-json": "^2.4.4",
     "json-server": "^0.16.3",
-    "lodash": "^4.17.21",
-    "node-fetch": "^2.6.1"
-  },
-  "devDependencies": {
-    "json-server": "^0.16.3"
+    "lodash": "^4.17.21"
   }
 }
